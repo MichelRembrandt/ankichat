@@ -9,83 +9,91 @@ import { logResponse } from './dev/responseLogger.js';
 
 
 async function main() {
-  console.log('アンキチャットへようこそ.「exit」まては「q」で終了します.\nEnter text to start Anki card creation...');
+  console.log('アンキチャットへようこそ.「exit」まては「q」で終了します.');
 
   while (true) {
-    const userPrompt : string = await input({ message: 'テキスト入力：' });
+    const userPrompt: string = await input({ message: '「入力」：' });
 
-    if (userPrompt.trim().toLowerCase() === 'exit' || userPrompt.trim().toLowerCase() === 'q') {
+    if (quitResponse(userPrompt)) {
       console.log('終了します');
       break;
     }
-
     if (!userPrompt.trim()) continue;
 
     try {
-        console.log('\n考え中…')
+      console.log('\n考え中…');
 
-        const response : string = await extractVocab(userPrompt);
-        const extractedVocab : VocabularyData = parseVocabulary(response);
-        logResponse('select-words', userPrompt, extractedVocab);                    // dev only
-        let words : Word[] = mapToWords(extractedVocab);
+      const response: string = await extractVocab(userPrompt);
+      const extractedVocab: VocabularyData = parseVocabulary(response);
+      logResponse('select-words', userPrompt, extractedVocab);               // dev only
+      let words: Word[] = mapToWords(extractedVocab);
 
-        // enrich with jisho
-        
-        console.log('\n語彙クイズを始めます!')
+      // enrich with jisho
 
-        for (const word of words) {
-          console.log('\n' + highlightWordInPhrase(word))
+      console.log('\n語彙クイズを始めます!');
 
-          if (word.word !== word.reading) {
-            const readingAnswer : string = await input({ message: '「読み」：'});
+      for (const word of words) {
+        console.log('\n' + highlightWordInPhrase(word) + '\n');
 
-            if (readingAnswer === word.reading) {
-              console.log('正解！')
-            } else {
-              console.log('不正解。正解は：' + word.reading)
-            }
+        if (word.word !== word.reading) {
+          const readingAnswer: string = await input({ message: '「読み」：' });
+
+          if (readingAnswer === word.reading) {
+            console.log('〇！');
+          } else {
+            console.log('不正解。正解は：' + word.reading);
           }
         }
-        
+
+        await input({message: '意味を表示…'});
+        console.log('\n' + word.meaning);
+        await input({message: ''});
+
+      }
 
 
-        // const readingAnswer = await input({ message: '「読み」：'});
 
-        // if (readingAnswer)
+      // const readingAnswer = await input({ message: '「読み」：'});
 
-
-        // const meaningAnswer = await input({ message: '「意味」：'});
+      // if (readingAnswer)
 
 
-        // 1: AI defines words that could be interesting
-        //      verbs, nouns, etc. (anything that is not a particle or character name)
-        //      words that are new (implement with Get from Anki)
-        //      limit to ... new words per session
-        //      display input text color coded with selected words and prompt for continu (add option to prompt AI to finetune selection)
+      // const meaningAnswer = await input({ message: '「意味」：'});
 
-        // 2: Break down of words one by one
-        //      Retrieve word info for Jisho, validate against context, add own translation if needed (with disclaimer)
-        //      漢字? Quiz ひらがな
-        //      Quiz meaning
-        //      Ask: create anki card
 
-        // 3: Card creation
+      // 1: AI defines words that could be interesting
+      //      verbs, nouns, etc. (anything that is not a particle or character name)
+      //      words that are new (implement with Get from Anki)
+      //      limit to ... new words per session
+      //      display input text color coded with selected words and prompt for continu (add option to prompt AI to finetune selection)
 
-        //      Front:
-        //          Word
-        //          Sentence from input
+      // 2: Break down of words one by one
+      //      Retrieve word info for Jisho, validate against context, add own translation if needed (with disclaimer)
+      //      漢字? Quiz ひらがな
+      //      Quiz meaning
+      //      Ask: create anki card
 
-        //      Back:
-        //          Hiragana
-        //          Jisho translation of word
-        //          AI translation of whole sentence
-        //          (Jisho audio)
-        //          First hit from duck duck go image search
+      // 3: Card creation
+
+      //      Front:
+      //          Word
+      //          Sentence from input
+
+      //      Back:
+      //          Hiragana
+      //          Jisho translation of word
+      //          AI translation of whole sentence
+      //          (Jisho audio)
+      //          First hit from duck duck go image search
 
     } catch (error: any) {
-        console.error(`\n Error:${error.message}\n`);
+      console.error(`\n Error:${error.message}\n`);
     }
   }
 }
 
 main();
+
+function quitResponse(userPrompt: string) {
+  return userPrompt.trim().toLowerCase() === 'exit' || userPrompt.trim().toLowerCase() === 'q'
+}

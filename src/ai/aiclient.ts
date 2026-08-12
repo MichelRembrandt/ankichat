@@ -16,6 +16,5 @@ export async function chat(message: string) {
         input: message,
     });
 
-   return response.output_text
-
+   return response.output_text;
 }
