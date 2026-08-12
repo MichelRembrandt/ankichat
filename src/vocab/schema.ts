@@ -19,5 +19,5 @@ export const VocabularyDataSchema = z.object({
 });
 
 export type VocabularyData = z.infer<typeof VocabularyDataSchema>;
-type VocabPhrase = z.infer<typeof VocabPhraseSchema>;
-type VocabWord = z.infer<typeof VocabWordSchema>;
+export type VocabPhrase = z.infer<typeof VocabPhraseSchema>;
+export type VocabWord = z.infer<typeof VocabWordSchema>;

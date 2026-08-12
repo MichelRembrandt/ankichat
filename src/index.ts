@@ -3,7 +3,8 @@ import { input } from '@inquirer/prompts';
 import { extractVocab } from './ai/prompt.js';
 import { VocabularyData } from './vocab/schema.js';
 import { parseVocabulary } from './vocab/parser.js';
-
+import { Word, mapToWords } from './vocab/wordMapper.js';
+import { highlightWordInPhrase } from './cli/style.js';
 
 
 async function main() {
@@ -24,17 +25,27 @@ async function main() {
 
         const response : string = await extractVocab(userPrompt);
         const extractedVocab : VocabularyData = parseVocabulary(response, "AI response");
+        let words : Word[] = mapToWords(extractedVocab);
 
+        // enrich with jisho
         
+        console.log('\n語彙クイズを始めます!')
+
+        for (const word of words) {
+          console.log('\n' + highlightWordInPhrase(word))
+
+          if (word.word !== word.reading) {
+            const readingAnswer : string = await input({ message: '「読み」：'});
+
+            if (readingAnswer === word.reading) {
+              console.log('正解！')
+            } else {
+              console.log('不正解。正解は：' + word.reading)
+            }
+          }
+        }
         
-        // const words : Word[] = ...
 
-//  prompt AI
-// enrich with jisho
-
-        // console.log('\nVocab quiz:')
-
-        // const extractedWords = await ... flatmap of words
 
         // const readingAnswer = await input({ message: '「読み」：'});
 
