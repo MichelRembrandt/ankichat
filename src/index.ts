@@ -5,6 +5,7 @@ import { VocabularyData } from './vocab/schema.js';
 import { parseVocabulary } from './vocab/parser.js';
 import { Word, mapToWords } from './vocab/wordMapper.js';
 import { highlightWordInPhrase } from './cli/style.js';
+import { logResponse } from './dev/responseLogger.js';
 
 
 async function main() {
@@ -13,7 +14,7 @@ async function main() {
   while (true) {
     const userPrompt : string = await input({ message: 'テキスト入力：' });
 
-    if (userPrompt.toLowerCase() === 'exit' || userPrompt.toLowerCase() === 'q') {
+    if (userPrompt.trim().toLowerCase() === 'exit' || userPrompt.trim().toLowerCase() === 'q') {
       console.log('終了します');
       break;
     }
@@ -24,7 +25,8 @@ async function main() {
         console.log('\n考え中…')
 
         const response : string = await extractVocab(userPrompt);
-        const extractedVocab : VocabularyData = parseVocabulary(response, "AI response");
+        const extractedVocab : VocabularyData = parseVocabulary(response);
+        logResponse('select-words', userPrompt, extractedVocab);                    // dev only
         let words : Word[] = mapToWords(extractedVocab);
 
         // enrich with jisho
