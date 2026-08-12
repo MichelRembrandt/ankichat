@@ -1,11 +1,11 @@
 import 'dotenv/config';
 import { input } from '@inquirer/prompts';
-import { extractVocab } from './ai/prompt.js';
-import { VocabularyData } from './vocab/schema.js';
-import { parseVocabulary } from './vocab/parser.js';
-import { Word, mapToWords } from './vocab/wordMapper.js';
-import { highlightWordInPhrase } from './cli/style.js';
-import { logResponse } from './dev/responseLogger.js';
+import { extractVocab } from './ai/prompt.ts';
+import type { VocabularyData } from './vocab/schema.ts';
+import { parseVocabulary } from './vocab/parser.ts';
+import { type Word, mapToWords } from './vocab/wordMapper.ts';
+import { highlightWordInPhrase } from './cli/style.ts';
+import { logResponse } from './dev/responseLogger.ts';
 
 
 async function main() {
@@ -27,8 +27,6 @@ async function main() {
       const extractedVocab: VocabularyData = parseVocabulary(response);
       logResponse('select-words', userPrompt, extractedVocab);               // dev only
       let words: Word[] = mapToWords(extractedVocab);
-
-      // enrich with jisho
 
       console.log('\n語彙クイズを始めます!');
 

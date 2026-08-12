@@ -1,4 +1,4 @@
-import { VocabularyDataSchema, type VocabularyData } from "./schema.js";
+import { VocabularyDataSchema, type VocabularyData } from "./schema.ts";
 
 export function parseVocabulary(raw: string): VocabularyData {
   // AI responses are sometimes wrapped in ```json ... ``` fences; strip them if present.

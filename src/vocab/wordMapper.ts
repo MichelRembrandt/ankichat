@@ -1,4 +1,4 @@
-import { VocabularyData, VocabPhrase, VocabWord } from "./schema.js";
+import type { VocabularyData, VocabPhrase, VocabWord } from "./schema.ts";
 
 export interface Word {
   word: string;

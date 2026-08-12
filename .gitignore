@@ -2,3 +2,4 @@
 /tmp
 
 .env
+.jisho-cache.json

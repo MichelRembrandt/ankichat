@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { Word } from '../vocab/wordMapper.js';
+import type { Word } from '../vocab/wordMapper.ts';
 
 export function highlightWordInPhrase(word: Word): string {
     const candidates = [

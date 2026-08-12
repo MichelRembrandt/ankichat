@@ -1,4 +1,4 @@
-import { chat } from './aiclient.js'
+import { chat } from './aiclient.ts'
 import exampleUserInput from '../../resources/input.json' with {type: 'json'};
 import exampleJson from '../../resources/vocabulary.json' with { type: 'json' };
 
