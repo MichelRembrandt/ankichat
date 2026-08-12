@@ -1,0 +1,85 @@
+{
+    "vocabulary": [
+        {
+            "phrase": "雨雲の灯りで瞳をつないで",
+            "words": [
+                {
+                    "word": "雨雲",
+                    "reading": "あまぐも",
+                    "part_of_speech": "noun",
+                    "meaning": "rain cloud"
+                },
+                {
+                    "word": "灯り",
+                    "reading": "あかり",
+                    "part_of_speech": "noun",
+                    "meaning": "light"
+                },
+                {
+                    "word": "瞳",
+                    "reading": "ひとみ",
+                    "part_of_speech": "noun",
+                    "meaning": "pupil (of eye), iris"
+                },
+                {
+                    "word": "つなぐ",
+                    "reading": "つなぐ",
+                    "part_of_speech": "verb",
+                    "meaning": "to connect, to link"
+                }
+            ],
+            "particles_excluded": [
+                "の",
+                "で",
+                "を"
+            ],
+            "meaning": "Connecting our eyes with the light of the rain clouds"
+        },
+        {
+            "phrase": "ようやく辿り着いた",
+            "words": [
+                {
+                    "word": "ようやく",
+                    "reading": "ようやく",
+                    "part_of_speech": "adverb",
+                    "meaning": "finally, at last, barely"
+                },
+                {
+                    "word": "辿り着く",
+                    "reading": "たどりつく",
+                    "part_of_speech": "verb",
+                    "meaning": "to reach, to arrive (after difficulty)"
+                }
+            ],
+            "particles_excluded": [],
+            "meaning": "Finally arrived"
+        },
+        {
+            "phrase": "ここは大きな日本家屋",
+            "words": [
+                {
+                    "word": "ここ",
+                    "reading": "ここ",
+                    "part_of_speech": "noun/pronoun",
+                    "meaning": "here, this place"
+                },
+                {
+                    "word": "大きい",
+                    "reading": "おおきい",
+                    "part_of_speech": "i-adjective",
+                    "meaning": "big, large"
+                },
+                {
+                    "word": "日本家屋",
+                    "reading": "にほんやおく",
+                    "part_of_speech": "noun",
+                    "meaning": "traditional Japanese house"
+                }
+            ],
+            "particles_excluded": [
+                "は"
+            ],
+            "meaning": "This is a large Japanese house"
+        }
+    ]
+}

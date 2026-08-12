@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(npm install)",
+      "Bash(npm run *)",
+      "Bash(docker compose up *)",
+      "Bash(docker compose down)",
+      "Bash(docker compose ps:*)",
+      "Bash(docker compose config:*)",
+      "Bash(docker compose logs:*)",
+      "Bash(mvn *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push *)",
+      "Bash(git reset --hard *)",
+      "Bash(sudo *)",
+      "Bash(curl * | sh)",
+      "Bash(curl * | bash)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(.env)"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

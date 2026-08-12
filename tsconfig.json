@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024"],
+    "module": "nodenext",
+    "types": ["node"],
+    "resolveJsonModule": true,
+    "strict": true,
+  }
+}
