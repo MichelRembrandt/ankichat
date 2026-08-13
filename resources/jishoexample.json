@@ -1,0 +1,805 @@
+{
+    "meta": {
+        "status": 200
+    },
+    "data": [
+        {
+            "slug": "人-2",
+            "is_common": true,
+            "tags": [
+                "wanikani1"
+            ],
+            "jlpt": [
+                "jlpt-n5"
+            ],
+            "japanese": [
+                {
+                    "word": "人",
+                    "reading": "ひと"
+                },
+                {
+                    "reading": "ヒト"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "person",
+                        "someone",
+                        "somebody"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "human beings",
+                        "mankind",
+                        "man",
+                        "people",
+                        "humans"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "human (Homo sapiens)"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [
+                        "Usually written using kana alone"
+                    ],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [
+                        "usu. ヒト"
+                    ]
+                },
+                {
+                    "english_definitions": [
+                        "(other) people",
+                        "others"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "character",
+                        "personality",
+                        "nature"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "capable person",
+                        "competent person",
+                        "suitable person",
+                        "right person"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "adult",
+                        "grown-up"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "I",
+                        "me",
+                        "one"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [
+                        "used when rebuking or criticizing someone"
+                    ]
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": false
+            }
+        },
+        {
+            "slug": "人-3",
+            "is_common": true,
+            "tags": [
+                "wanikani3"
+            ],
+            "jlpt": [],
+            "japanese": [
+                {
+                    "word": "人",
+                    "reading": "にん"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "counter for people"
+                    ],
+                    "parts_of_speech": [
+                        "Counter"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": false
+            }
+        },
+        {
+            "slug": "人",
+            "is_common": true,
+            "tags": [],
+            "jlpt": [
+                "jlpt-n1"
+            ],
+            "japanese": [
+                {
+                    "word": "人",
+                    "reading": "じん"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "-ian (e.g. Italian)",
+                        "-ite (e.g. Tokyoite)"
+                    ],
+                    "parts_of_speech": [
+                        "Suffix"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [
+                        "indicates nationality, race, origin, etc."
+                    ]
+                },
+                {
+                    "english_definitions": [
+                        "-er (e.g. performer, etc.)",
+                        "person working with ..."
+                    ],
+                    "parts_of_speech": [
+                        "Suffix"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [
+                        "indicates expertise (in a certain field)"
+                    ]
+                },
+                {
+                    "english_definitions": [
+                        "man",
+                        "person",
+                        "people"
+                    ],
+                    "parts_of_speech": [
+                        "Suffix"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [
+                        "usu. in compound words"
+                    ]
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": false
+            }
+        },
+        {
+            "slug": "人-1",
+            "is_common": false,
+            "tags": [],
+            "jlpt": [],
+            "japanese": [
+                {
+                    "word": "人",
+                    "reading": "と"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "person"
+                    ],
+                    "parts_of_speech": [
+                        "Suffix"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": false
+            }
+        },
+        {
+            "slug": "人形",
+            "is_common": true,
+            "tags": [
+                "wanikani7"
+            ],
+            "jlpt": [
+                "jlpt-n4"
+            ],
+            "japanese": [
+                {
+                    "word": "人形",
+                    "reading": "にんぎょう"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "doll",
+                        "puppet",
+                        "marionette"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "puppet (person under the control of another)",
+                        "straw man",
+                        "yes-man"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Ningyou"
+                    ],
+                    "parts_of_speech": [
+                        "Place"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Doll"
+                    ],
+                    "parts_of_speech": [
+                        "Wikipedia definition"
+                    ],
+                    "links": [
+                        {
+                            "text": "Read “Doll” on English Wikipedia",
+                            "url": "http://en.wikipedia.org/wiki/Doll?oldid=489315064"
+                        },
+                        {
+                            "text": "Read “人形” on Japanese Wikipedia",
+                            "url": "http://ja.wikipedia.org/wiki/人形?oldid=42716758"
+                        }
+                    ],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [],
+                    "sentences": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": true,
+                "dbpedia": "http://dbpedia.org/resource/Doll"
+            }
+        },
+        {
+            "slug": "人口",
+            "is_common": true,
+            "tags": [
+                "wanikani1"
+            ],
+            "jlpt": [
+                "jlpt-n4"
+            ],
+            "japanese": [
+                {
+                    "word": "人口",
+                    "reading": "じんこう"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "population"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "common talk"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Population"
+                    ],
+                    "parts_of_speech": [
+                        "Wikipedia definition"
+                    ],
+                    "links": [
+                        {
+                            "text": "Read “Population” on English Wikipedia",
+                            "url": "http://en.wikipedia.org/wiki/Population?oldid=494726181"
+                        },
+                        {
+                            "text": "Read “人口” on Japanese Wikipedia",
+                            "url": "http://ja.wikipedia.org/wiki/人口?oldid=42675695"
+                        }
+                    ],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [],
+                    "sentences": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": "http://dbpedia.org/resource/Population"
+            }
+        },
+        {
+            "slug": "人間",
+            "is_common": true,
+            "tags": [
+                "wanikani8"
+            ],
+            "jlpt": [
+                "jlpt-n3"
+            ],
+            "japanese": [
+                {
+                    "word": "人間",
+                    "reading": "にんげん"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "human being",
+                        "human",
+                        "person",
+                        "man",
+                        "mankind",
+                        "humankind"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "character (of a person)"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Human"
+                    ],
+                    "parts_of_speech": [
+                        "Wikipedia definition"
+                    ],
+                    "links": [
+                        {
+                            "text": "Read “Human” on English Wikipedia",
+                            "url": "http://en.wikipedia.org/wiki/Human?oldid=495511955"
+                        },
+                        {
+                            "text": "Read “人間” on Japanese Wikipedia",
+                            "url": "http://ja.wikipedia.org/wiki/人間?oldid=42767068"
+                        }
+                    ],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [],
+                    "sentences": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": "http://dbpedia.org/resource/Human"
+            }
+        },
+        {
+            "slug": "人生",
+            "is_common": true,
+            "tags": [
+                "wanikani3"
+            ],
+            "jlpt": [
+                "jlpt-n3"
+            ],
+            "japanese": [
+                {
+                    "word": "人生",
+                    "reading": "じんせい"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "(one's) life"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Human life"
+                    ],
+                    "parts_of_speech": [
+                        "Wikipedia definition"
+                    ],
+                    "links": [
+                        {
+                            "text": "Read “Human life” on English Wikipedia",
+                            "url": "http://en.wikipedia.org/wiki/Human_life?oldid=488065129"
+                        },
+                        {
+                            "text": "Read “人生” on Japanese Wikipedia",
+                            "url": "http://ja.wikipedia.org/wiki/人生?oldid=42715160"
+                        }
+                    ],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [],
+                    "sentences": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": "http://dbpedia.org/resource/Human_life"
+            }
+        },
+        {
+            "slug": "人種",
+            "is_common": true,
+            "tags": [
+                "wanikani18"
+            ],
+            "jlpt": [
+                "jlpt-n3"
+            ],
+            "japanese": [
+                {
+                    "word": "人種",
+                    "reading": "じんしゅ"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "race (of people)"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "type of person"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [
+                        "Colloquial"
+                    ],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Race (human classification)"
+                    ],
+                    "parts_of_speech": [
+                        "Wikipedia definition"
+                    ],
+                    "links": [
+                        {
+                            "text": "Read “Race (human classification)” on English Wikipedia",
+                            "url": "http://en.wikipedia.org/wiki/Race_(human_classification)?oldid=494993306"
+                        },
+                        {
+                            "text": "Read “人種” on Japanese Wikipedia",
+                            "url": "http://ja.wikipedia.org/wiki/人種?oldid=42585917"
+                        }
+                    ],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [],
+                    "sentences": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": "http://dbpedia.org/resource/Race_(human_classification)"
+            }
+        },
+        {
+            "slug": "人差し指",
+            "is_common": true,
+            "tags": [
+                "wanikani26"
+            ],
+            "jlpt": [
+                "jlpt-n2"
+            ],
+            "japanese": [
+                {
+                    "word": "人差し指",
+                    "reading": "ひとさしゆび"
+                },
+                {
+                    "word": "人指し指",
+                    "reading": "ひとさしゆび"
+                }
+            ],
+            "senses": [
+                {
+                    "english_definitions": [
+                        "index finger",
+                        "forefinger",
+                        "first (occ. second) finger"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "second toe"
+                    ],
+                    "parts_of_speech": [
+                        "Noun"
+                    ],
+                    "links": [],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": []
+                },
+                {
+                    "english_definitions": [
+                        "Index finger"
+                    ],
+                    "parts_of_speech": [
+                        "Wikipedia definition"
+                    ],
+                    "links": [
+                        {
+                            "text": "Read “Index finger” on English Wikipedia",
+                            "url": "http://en.wikipedia.org/wiki/Index_finger?oldid=491970616"
+                        },
+                        {
+                            "text": "Read “人差し指” on Japanese Wikipedia",
+                            "url": "http://ja.wikipedia.org/wiki/人差し指?oldid=42450878"
+                        }
+                    ],
+                    "tags": [],
+                    "restrictions": [],
+                    "see_also": [],
+                    "antonyms": [],
+                    "source": [],
+                    "info": [],
+                    "sentences": []
+                }
+            ],
+            "attribution": {
+                "jmdict": true,
+                "jmnedict": false,
+                "dbpedia": "http://dbpedia.org/resource/Index_finger"
+            }
+        }
+    ]
+}

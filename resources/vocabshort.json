@@ -1,0 +1,40 @@
+{
+    "vocabulary": [
+        {
+            "phrase": "雨雲の灯りで瞳をつないで",
+            "words": [
+                "雨雲",
+                "灯り",
+                "瞳",
+                "つなぐ"
+            ],
+            "particles_excluded": [
+                "の",
+                "で",
+                "を"
+            ],
+            "meaning": "Connecting our eyes with the light of the rain clouds"
+        },
+        {
+            "phrase": "ようやく辿り着いた",
+            "words": [
+                "ようやく",
+                "辿り着く"
+            ],
+            "particles_excluded": [],
+            "meaning": "Finally arrived"
+        },
+        {
+            "phrase": "ここは大きな日本家屋",
+            "words": [
+                "ここ",
+                "大きい",
+                "日本家屋"
+            ],
+            "particles_excluded": [
+                "は"
+            ],
+            "meaning": "This is a large Japanese house"
+        }
+    ]
+}

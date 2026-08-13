@@ -1,74 +1,67 @@
 import 'dotenv/config';
 import { input } from '@inquirer/prompts';
-import { extractVocab } from './ai/prompt.ts';
-import type { VocabularyData } from './vocab/schema.ts';
-import { parseVocabulary } from './vocab/parser.ts';
-import { type Word, mapToWords } from './vocab/wordMapper.ts';
-import { highlightWordInPhrase } from './cli/style.ts';
+import { extractVocab } from './prompt.ts';
+import type { VocabularyData } from './vocab/ai/schema.ts';
+import { parseVocabulary } from './vocab/ai/parser.ts';
+import { mapToWords } from './vocab/ai/wordMapper.ts';
+import { highlight, highlightWordInPhrase } from './cli/style.ts';
 import { logResponse } from './dev/responseLogger.ts';
-
+import { enrichWords } from './vocab/jisho/jishoInterface.ts';
+import type { Word } from './vocab/types.ts'
 
 async function main() {
-  console.log('アンキチャットへようこそ.「exit」まては「q」で終了します.');
+  console.log('\n\tアンキチャットへようこそ.「exit」まては「q」で終了します.');
 
   while (true) {
-    const userPrompt: string = await input({ message: '「入力」：' });
+    const userPrompt: string = await input({ message: '\n「入力」：' });
 
-    if (quitResponse(userPrompt)) {
-      console.log('終了します');
+    if (userPrompt.toLowerCase() === 'exit' || userPrompt.toLowerCase() === 'q') {
+      console.log('\n\t終了します\n');
       break;
     }
     if (!userPrompt.trim()) continue;
 
     try {
-      console.log('\n考え中…');
+      console.log('\n\t考え中…');
 
       const response: string = await extractVocab(userPrompt);
       const extractedVocab: VocabularyData = parseVocabulary(response);
-      logResponse('select-words', userPrompt, extractedVocab);               // dev only
-      let words: Word[] = mapToWords(extractedVocab);
+      logResponse('select-words', userPrompt, extractedVocab);
+      const wordBases: Word[] = mapToWords(extractedVocab);
 
-      console.log('\n語彙クイズを始めます!');
+      console.log('\t処理中…')
+
+      const words: Word[] = await enrichWords(wordBases);
+      logResponse('card-draft', userPrompt, words);
+
+      console.log('\n\t語彙クイズを始めます!');
 
       for (const word of words) {
-        console.log('\n' + highlightWordInPhrase(word) + '\n');
+        console.log('\n\t' + highlightWordInPhrase(word) + '\n');
+        if (!word.phrase?.includes(word.writing)) {
+          console.log('\t- ' + highlight(word.writing) + ' -\n')
+        }
 
-        if (word.word !== word.reading) {
+        if (word.writing !== word.reading) {
           const readingAnswer: string = await input({ message: '「読み」：' });
 
           if (readingAnswer === word.reading) {
-            console.log('〇！');
+            console.log('\n\t〇！\n');
           } else {
-            console.log('不正解。正解は：' + word.reading);
+            console.log('\n\tX!\t読みは：「' + word.reading + '」\n');
           }
         }
 
-        await input({message: '意味を表示…'});
-        console.log('\n' + word.meaning);
-        await input({message: ''});
+        await input({message: '「意味」：'});
+        console.log('\n\t意味は： ' + word.translations + '\n');
+        await input({message: '次…'});
 
       }
 
-
-
-      // const readingAnswer = await input({ message: '「読み」：'});
-
-      // if (readingAnswer)
-
-
-      // const meaningAnswer = await input({ message: '「意味」：'});
-
-
       // 1: AI defines words that could be interesting
-      //      verbs, nouns, etc. (anything that is not a particle or character name)
       //      words that are new (implement with Get from Anki)
-      //      limit to ... new words per session
-      //      display input text color coded with selected words and prompt for continu (add option to prompt AI to finetune selection)
 
       // 2: Break down of words one by one
-      //      Retrieve word info for Jisho, validate against context, add own translation if needed (with disclaimer)
-      //      漢字? Quiz ひらがな
-      //      Quiz meaning
       //      Ask: create anki card
 
       // 3: Card creation
@@ -85,13 +78,9 @@ async function main() {
       //          First hit from duck duck go image search
 
     } catch (error: any) {
-      console.error(`\n Error:${error.message}\n`);
+      console.error(`\n\tError:${error.message}\n`);
     }
   }
 }
 
 main();
-
-function quitResponse(userPrompt: string) {
-  return userPrompt.trim().toLowerCase() === 'exit' || userPrompt.trim().toLowerCase() === 'q'
-}
