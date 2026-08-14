@@ -52,7 +52,6 @@ src/
       parser.ts             Parses/validates the raw LLM response into VocabularyData
       wordMapper.ts          Flattens phrases into a single Word list
     jisho/
-      jishoInterface.ts     Public entry point re-exporting the module
       enrich.ts             Looks up each word on Jisho and merges results into Word, using the disk cache
       api.ts                Jisho HTTP client (throttled, retries on 429/5xx)
       match.ts              Picks the best Jisho entry when a lookup returns multiple results

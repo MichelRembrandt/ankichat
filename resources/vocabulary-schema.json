@@ -1,0 +1,50 @@
+{
+  "name": "vocabulary_extraction",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "vocabulary": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "phrase": {
+              "type": "string",
+              "description": "The original Japanese phrase or sentence."
+            },
+            "words": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Content words extracted from the phrase, normalized to dictionary/lemma form."
+            },
+            "particles_excluded": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Particles present in the phrase but excluded from the words list."
+            },
+            "meaning": {
+              "type": "string",
+              "description": "English translation of the phrase."
+            }
+          },
+          "required": [
+            "phrase",
+            "words",
+            "particles_excluded",
+            "meaning"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "vocabulary"
+    ],
+    "additionalProperties": false
+  }
+}
