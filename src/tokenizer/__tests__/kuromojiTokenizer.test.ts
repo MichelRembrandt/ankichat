@@ -41,14 +41,17 @@ test("real input: これまで綴ってきた歌詞が英訳され", async () =>
   const tokens = await tokenize("これまで綴ってきた歌詞が英訳され");
   const filtered = filterContentTokens(tokens);
   const forms = filtered.map(t => t.dictionaryForm);
-  assert.deepEqual(forms, ["これ", "綴る", "くる", "歌詞", "英訳", "する", "れる"]);
+  // き(くる, 動詞/非自立) and れ(れる, 動詞/接尾) are grammatical/auxiliary-functioning
+  // forms, excluded by the 接尾/非自立 posDetail rule alongside 助詞/助動詞/記号.
+  assert.deepEqual(forms, ["これ", "綴る", "歌詞", "英訳", "する"]);
 });
 
 test("real input: 呼ばれた人は たやすく登れてしまう月の丘", async () => {
   const tokens = await tokenize("呼ばれた人は たやすく登れてしまう月の丘");
   const filtered = filterContentTokens(tokens);
   const forms = filtered.map(t => t.dictionaryForm);
-  assert.deepEqual(forms, ["呼ぶ", "れる", "人", "たやすい", "登れる", "しまう", "月", "丘"]);
+  // れる(動詞/接尾) and しまう(動詞/非自立) excluded as grammatical function forms.
+  assert.deepEqual(forms, ["呼ぶ", "人", "たやすい", "登れる", "月", "丘"]);
 });
 
 test("real input: アンキチャットへようこそ", async () => {
@@ -57,4 +60,12 @@ test("real input: アンキチャットへようこそ", async () => {
   const forms = filtered.map(t => t.dictionaryForm);
   assert.deepEqual(forms, ["アンキチャット", "ようこそ"]);
   assert.ok(!filtered.some(t => t.surface === "へ"));
+});
+
+test("real input: あの子はまだわたしたち幾つも約束をしたまま", async () => {
+  const tokens = await tokenize("あの子はまだわたしたち幾つも約束をしたまま");
+  const filtered = filterContentTokens(tokens);
+  const forms = filtered.map(t => t.dictionaryForm);
+  // たち(名詞/接尾) and まま(名詞/非自立) excluded alongside は/も/を particles and た auxiliary.
+  assert.deepEqual(forms, ["あの", "子", "まだ", "わたし", "幾つ", "約束", "する"]);
 });

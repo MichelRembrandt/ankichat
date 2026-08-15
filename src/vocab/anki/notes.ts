@@ -31,8 +31,8 @@ export function draftToNote(
     deckName,
     modelName,
     fields: {
-      Front: `${word.writing}<br><i>${word.phrase}</i>`,
-      Back: `${word.reading}<br>${word.translations}<br>${word.phraseTranslation}`,
+      Front: `${word.writing}<br><br><i>${word.phrase}</i>`,
+      Back: `${word.reading}<br>${word.translations}<br><br><i>${word.phraseTranslation}</i>`,
     },
     tags: ["anki-helper"],
     options: {

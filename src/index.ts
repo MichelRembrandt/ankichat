@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import { input } from '@inquirer/prompts';
-import { extractVocab } from './prompt.ts';
-import type { VocabularyData } from './vocab/ai/schema.ts';
-import { parseVocabulary } from './vocab/ai/parser.ts';
-import { mapToWords } from './vocab/ai/wordMapper.ts';
+import { splitAndTranslatePhrases } from './prompt.ts';
+import type { PhraseSplit } from './vocab/ai/schema.ts';
+import { parsePhraseSplit } from './vocab/ai/parser.ts';
+import { mapPhrasesToWords } from './vocab/ai/phraseWordMapper.ts';
 import { highlight, highlightWordInPhrase } from './cli/style.ts';
 import { logResponse } from './dev/responseLogger.ts';
 import { enrichWords } from './vocab/jisho/enrich.ts';
@@ -13,7 +13,7 @@ import { addCard } from './vocab/anki/notes.ts';
 import { getTokenizer } from './tokenizer/kuromojiTokenizer.ts';
 
 async function main() {
-  console.log('\n\tアンキチャットへようこそ.「exit」まては「q」で終了します.');
+  console.log('\n\tアンキチャットへようこそ.「exit」まては「q」で終了します.\n');
 
   await getTokenizer();
 
@@ -21,9 +21,9 @@ async function main() {
     
     checkConnection();
 
-    const userPrompt: string = await input({ message: '\n「入力」：' });
+    const userPrompt: string = await input({ message: '「入力」：' });
 
-    if (userPrompt.toLowerCase() === 'exit' || userPrompt.toLowerCase() === 'q') {
+    if (userPrompt.trim().toLowerCase() === 'exit' || userPrompt.trim().toLowerCase() === 'q') {
       console.log('\n\t終了します\n');
       break;
     }
@@ -32,10 +32,10 @@ async function main() {
     try {
       console.log('\n\t考え中…');
 
-      const response: string = await extractVocab(userPrompt);
-      const extractedVocab: VocabularyData = parseVocabulary(response);
-      logResponse('select-words', userPrompt, extractedVocab);
-      const wordBases: Word[] = mapToWords(extractedVocab);
+      const response = await splitAndTranslatePhrases(userPrompt);
+      const phraseSplit: PhraseSplit = parsePhraseSplit(response);
+      logResponse('select-words', userPrompt, phraseSplit);
+      const wordBases: Word[] = await mapPhrasesToWords(phraseSplit, userPrompt);
 
       console.log('\t処理中…')
 
@@ -63,9 +63,8 @@ async function main() {
         await input({message: '「意味」：'});
         console.log('\n\t意味は： ' + word.translations + '\n');
         
-        console.log('Add card to anki? (y/n)');
-        const createCard: string = await input({message: '「add?」；'});
-        if (createCard.toLowerCase() === 'y') {
+        const createCard: string = await input({message: 'Add card to anki? 「y/n」:'});
+        if (!createCard.trim() || createCard.trim().toLowerCase() === 'y') {
           await addCard(word);
         }
       }
