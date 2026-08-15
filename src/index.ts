@@ -10,9 +10,12 @@ import { enrichWords } from './vocab/jisho/enrich.ts';
 import type { Word } from './vocab/types.ts'
 import { checkConnection } from './vocab/anki/connection.ts'
 import { addCard } from './vocab/anki/notes.ts';
+import { getTokenizer } from './tokenizer/kuromojiTokenizer.ts';
 
 async function main() {
   console.log('\n\tアンキチャットへようこそ.「exit」まては「q」で終了します.');
+
+  await getTokenizer();
 
   while (true) {
     
