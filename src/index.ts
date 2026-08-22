@@ -4,6 +4,7 @@ import { splitAndTranslatePhrases } from './prompt.ts';
 import type { PhraseSplit } from './vocab/ai/schema.ts';
 import { parsePhraseSplit } from './vocab/ai/parser.ts';
 import { mapPhrasesToWords } from './vocab/ai/phraseWordMapper.ts';
+import { mapInputToWordsDeterministically } from './phrase/mapInputToWords.ts';
 import { highlight, highlightWordInPhrase } from './cli/style.ts';
 import { logResponse } from './dev/responseLogger.ts';
 import { enrichWords } from './vocab/jisho/enrich.ts';
@@ -33,10 +34,15 @@ async function main() {
     try {
       console.log('\n\t考え中…');
 
-      const response = await splitAndTranslatePhrases(userPrompt);
-      const phraseSplit: PhraseSplit = parsePhraseSplit(response);
-      logResponse('select-words', userPrompt, phraseSplit);
-      const wordBases: Word[] = await mapPhrasesToWords(phraseSplit, userPrompt);
+      let wordBases: Word[];
+      if (process.env.DETERMINISTIC_PHRASE_SPLIT_ENABLED === 'true') {
+        wordBases = await mapInputToWordsDeterministically(userPrompt);
+      } else {
+        const response = await splitAndTranslatePhrases(userPrompt);
+        const phraseSplit: PhraseSplit = parsePhraseSplit(response);
+        logResponse('select-words', userPrompt, phraseSplit);
+        wordBases = await mapPhrasesToWords(phraseSplit, userPrompt);
+      }
 
       console.log('\t処理中…')
 

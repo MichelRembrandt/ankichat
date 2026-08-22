@@ -12,6 +12,10 @@ A CLI tool for Japanese vocabulary study. You paste in a piece of Japanese text,
 6. Each word is quizzed one at a time: the source phrase is printed with the target word highlighted, and you're asked to type its reading (skipped if the writing is already kana-only) and then shown its meaning.
 7. After each word, you can choose to save it as an Anki card via [AnkiConnect](https://foosoft.net/projects/anki-connect/) — Anki must be running locally with the AnkiConnect add-on installed (add-on code `2055492159`). The target deck (from `ANKI_DECK`) is created automatically if it doesn't exist.
 
+### Deterministic phrase splitting (experimental, off by default)
+
+Setting `DETERMINISTIC_PHRASE_SPLIT_ENABLED=true` replaces step 2–3 above with a fully deterministic path (`src/phrase/`): the input is split into sentences, tokenized with kuromoji, and chunked into phrases (≤3 particle-separated parts each) using a fixed particle classification table — no LLM call, no risk of a hallucinated/non-verbatim phrase. A phrase can overflow into multiple ≤3-part groups; when it does, adjacent groups may overlap by a part to keep the final group at 3 (word extraction still runs each overlapped word exactly once). **Known gap:** this path has no source for a phrase translation (that used to come bundled with the LLM's splitting call), so `phraseTranslation` is always empty on the card back until a follow-up adds a dedicated translation step.
+
 ## Setup
 
 Requires Node.js 24+.
@@ -27,6 +31,7 @@ LLM_API_KEY=your-api-key
 LLM_API_URL=http://127.0.0.1:1234/v1  # or a compatible endpoint
 LLM_MODEL=gpt-4o-mini                   # or your preferred model
 ANKI_DECK=your-deck-name
+DETERMINISTIC_PHRASE_SPLIT_ENABLED=false  # see "Deterministic phrase splitting" below
 ```
 
 No credentials are needed for Jisho — it's called via its public, unauthenticated API. Anki card creation requires Anki to be running locally with the [AnkiConnect](https://foosoft.net/projects/anki-connect/) add-on installed.
@@ -53,6 +58,12 @@ src/
     filterTokens.ts           Drops particles, auxiliary verbs, and grammatical suffix/non-independent forms
     tokenize.ts                Top-level tokenize + lemmatize entry point, with debug logging
     __tests__/                Regression tests against known kuromoji tokenization edge cases
+  phrase/
+    splitSentences.ts          Deterministic sentence-boundary splitting (see "Deterministic phrase splitting")
+    particleClassification.ts  Splitting/attaching classification table for kuromoji-tagged particles
+    chunkPhrases.ts             Groups a sentence's tokens into <=3-part phrases; overflow handling
+    mapInputToWords.ts           Top-level deterministic entry point, feature-flagged in index.ts
+    __tests__/                  Unit + real-tokenizer regression tests for the above
   vocab/
     types.ts                 Word type shared across the vocab pipeline
     ai/
@@ -88,7 +99,6 @@ resources/
 - **Potential-form verbs often don't get a Jisho match.** kuromoji's IPADIC dictionary lexicalizes potential-form verbs (e.g. 登れる, "to be able to climb") as their own dictionary entries rather than deriving them from their plain form (登る), and Jisho/JMdict doesn't always index the potential form separately. There's no fallback that retries the lookup against a de-conjugated candidate — doing so reliably would require dictionary-lookup confirmation (a blind suffix rewrite misfires on genuine ichidan verbs that happen to share the same surface pattern, e.g. 忘れる, 疲れる, 現れる), which would mean extending the Jisho lookup/matching layer.
 - **The LLM can occasionally return a non-verbatim phrase.** Its only job is splitting the input into phrases and translating them, but it can still drift from the source text (e.g. inserting or dropping a character). This is caught by a boundary check before tokenization — the pipeline fails loudly with a clear error rather than silently tokenizing corrupted text — but there's no automatic retry; the user has to re-enter the input.
 - **kuromoji's IPADIC dictionary is static.** It can over/under-segment compounds (e.g. 英訳する splits into 英訳 + する instead of being treated as one verb) and doesn't know modern vocabulary, slang, or many proper nouns.
-- **`src/vocab/anki/notes.ts` has a pre-existing, unrelated bug**: it imports `Word` as a value instead of `import type { Word }`, which breaks at runtime under Node's native TypeScript type-stripping. This currently prevents running the CLI end-to-end and predates the tokenizer work above; it wasn't fixed as it falls outside that work's scope.
 
 ## Roadmap
 
