@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export async function logResponse(
-  stage: 'select-words' | 'card-draft' | 'feedback' | 'tokenize',
+  stage: 'select-words' | 'card-draft' | 'feedback' | 'tokenize' | 'image-attach',
   prompt: string,
   response: any
 ): Promise<string> {

@@ -8,4 +8,5 @@ export interface Word {
   matchType?: "exact" | "fallback" | "none",
   phrase?: string;
   phraseTranslation?: string;
+  imageUrl?: string;
 }

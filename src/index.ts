@@ -11,6 +11,7 @@ import type { Word } from './vocab/types.ts'
 import { checkConnection } from './vocab/anki/connection.ts'
 import { addCard } from './vocab/anki/notes.ts';
 import { getTokenizer } from './tokenizer/kuromojiTokenizer.ts';
+import { promptForImageUrl } from './vocab/image/attach.ts';
 
 async function main() {
   console.log('\n\tアンキチャットへようこそ.「exit」まては「q」で終了します.\n');
@@ -65,6 +66,9 @@ async function main() {
         
         const createCard: string = await input({message: 'Add card to anki? 「y/n」:'});
         if (!createCard.trim() || createCard.trim().toLowerCase() === 'y') {
+          if (process.env.IMAGE_ATTACH_ENABLED === 'true') {
+            word.imageUrl = await promptForImageUrl(word.writing);
+          }
           await addCard(word);
         }
       }
